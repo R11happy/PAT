@@ -28,7 +28,7 @@ struct node
 
 node *create(int postL, int postR, int inL, int inR)
 {
-    if (postL > postR)   return NULL;
+    if (postL > postR)   return NULL;   //递归出口
     node *root = new node;
     root->data = post[postR];
 
@@ -93,3 +93,13 @@ int main(int argc, char const *argv[])
     BFS(T);
     return 0;
 }
+
+
+/*
+Sample Input:
+7
+2 3 1 5 7 6 4
+1 2 3 4 5 6 7
+Sample Output:
+4 1 6 3 5 7 2
+ */

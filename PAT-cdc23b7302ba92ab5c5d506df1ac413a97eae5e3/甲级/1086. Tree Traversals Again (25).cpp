@@ -81,3 +81,22 @@ int main(int argc, char const *argv[])
     postOrder(root);
     return 0;
 }
+
+/*
+Sample Input:
+6
+Push 1
+Push 2
+Push 3
+Pop
+Pop
+Push 4
+Pop
+Pop
+Push 5
+Push 6
+Pop
+Pop
+Sample Output:
+3 4 2 6 5 1
+ */
