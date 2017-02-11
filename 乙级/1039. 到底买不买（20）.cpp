@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
 
     for(int i = 0; i<len2; i++)
     {
-        if(HashTable[str2[i]] == 0) sub++;  //当发现某一珠子数量为0，缺少的珠子数减1
+        if(HashTable[str2[i]] == 0) sub++;  //当发现某一珠子数量为0，缺少的珠子数加1
         else    HashTable[str2[i]]--;
     }
     if(!sub) printf("Yes %d",len1-len2);
