@@ -1,4 +1,4 @@
-#include <cstdio>
+ #include <cstdio>
 //A[]为严格递增序列，left为二分下界，right为二分上界，x为欲查询的数
 //二分区间为左闭右闭的[left,right]，传入的初值为[0,n-1]
 int binarySearch(int A[], int left, int right, int x)
