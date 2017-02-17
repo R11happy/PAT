@@ -18,3 +18,21 @@ int randSelect(int A[], int left, int right, int K)
         return randSelect(A, p+1, right, K-M);
     }
 }
+
+
+int randPartition(int A[], int left, int right)
+{
+    // 随机取一个落在left和right之间的整数
+    int p = (round(1.0*rand()/RAND_MAX*(right - left))+left);
+    swap(A[p], A[left]);
+    int tmp = A[left];
+    while(left < right)
+    {
+        while(left < right && A[right] > tmp) right--;
+        A[left] = A[right];
+        while(left < right && A[left] < tmp)    left++;
+        A[right] = A[left];
+    }
+    A[left] = tmp;
+    return left;
+}

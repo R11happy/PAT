@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
     }
     sort(changed, changed+N);
     // 考虑1 4 3 2 5中的3
-    // 只有与实际位置温吻合，并且前面没有更大的数的时候才可能是主元
+    // 只有与实际位置吻合，并且前面没有更大的数的时候才可能是主元
     for(int i = 0; i<N; i++)
     {
         if(origin[i] == changed[i] && max < origin[i] )
