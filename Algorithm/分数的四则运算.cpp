@@ -38,6 +38,7 @@ Fraction reduction(Fraction result)
     }
     else    //如果分子不为0，进行约分
     {
+        // 不要忘记加abs
         int d = gcd(abs(result.up), abs(result.down));
         result.up /= d; //约去最大公约数
         result.down /= d;
@@ -92,3 +93,6 @@ void showResult(Fraction r)
     }
     else    printf("%d/%d",r.up,r.down );   //真分数
 }
+
+
+
