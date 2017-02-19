@@ -47,7 +47,7 @@ int main()
     int num = 0;
     scanf("%lld", &N);
     Find_Prime();
-    if (N == 1) printf("1=1");
+    if (N == 1) printf("1=1");  //注意特判
     else
     {
         printf("%lld=",N);
@@ -81,3 +81,6 @@ int main()
     }
     return 0;
 }
+
+
+
