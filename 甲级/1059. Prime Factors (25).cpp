@@ -18,7 +18,7 @@ using namespace std;
 
 const int maxn = 100010;
 int prime[maxn], pNum;
-bool p[maxn] = { 0 };
+bool p[maxn] = { 1,1 };
 
 void Find_Prime()
 {
@@ -66,9 +66,9 @@ int main()
             }
             if (N == 1) break;
         }
-        if (N != 1)
+        if (N != 1) //如果无法被根号n以内的质因子除尽
         {
-            fac[num].x = N;
+            fac[num].x = N; //那么一定有一个大于根号n的质因子
             fac[num++].cnt++;   //不是fac[num].cnt++
         }
     }
