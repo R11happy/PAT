@@ -130,6 +130,34 @@ void LayerOrder(node *root)
     }
 }
 
+
+void LayerOrder(node *root)
+{
+    queue<node*> q;
+    root->layer = 1;
+    q.push(root);
+    while(!q.empty())
+    {
+        node *now = q.front();
+        q.pop();
+        printf("%d ",now->data );
+        if(now->lchild != NULL)
+        {
+            q.push(now->lchild);
+        }
+        if(now->lchild != NULL)
+        {
+            now->lchild->layer = now->layer+1;
+            q.push(now->lchild);
+        }
+        if(now->rchild != NULL)
+        {
+            now->rchild->layer = now->layer+1;
+            q.push(now->rchild);
+        }
+    }
+}
+
 // 当前先序序列区间为[preL, preR],中序序列区间为[inL,inR],返回根结点地址
 node *create(int prel, int preR, int inL, int inR)
 {
