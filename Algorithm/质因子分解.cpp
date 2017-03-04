@@ -33,3 +33,4 @@ if(n!=1)
     fac[num].x = n;
     fac[num++].cnt = 1;
 }
+
