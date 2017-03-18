@@ -142,3 +142,63 @@ int main(int argc, char const *argv[])
     printf("%d\n",dp[lenA][lenB] );
     return 0;
 }
+
+/**
+* @tag     最长回文子串
+* @authors R11happy (xushuai100@126.com)
+* @date    2017-3-18 22:44-
+* @version 1.0
+* @Language C++
+* @Ranking  null
+* @function null
+*/
+
+// dp[i][j]表示S[i]到S[j]的子串是否是回文子串   是为1，不是为0
+//dp[i][j]: if S[i] == S[j] dp[i+1][j-1]
+//          else if S[i] != S[j] 0
+//边界：dp[i][i]=1   dp[i][i+1] = (S[i] == S[i+1])?1:0
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+const int maxn = 1010;
+char S[maxn];
+int dp[maxn][maxn];
+int main(int argc, char const *argv[])
+{
+    gets(S);
+    int len = strlen(S), ans 1;
+    memeset(dp, 0, sizeof(dp));
+    // 边界
+    for (int i = 0; i < len; ++i)
+    {
+        dp[i][i] = 1;
+        if(i < len-1)
+        {
+            if(S[i] == S[i+1])
+            {
+                dp[i][i+1] = 1;
+                ans = 2;    //初始化时注意当前最长回文子串长度
+            }
+        }
+    }
+    // 状态转移方程
+    for(int L = 3; L<=len; L++) //枚举子串长度
+    {
+        for(int i = 0; i+L-1<len; i++)  //枚举子串的起始端点
+        {
+            int j = i+L-1;  //子串的右端点
+            {
+                if(S[i] == S[j] && dp[i+1][j-1] == 1)
+                {
+                    dp[i][j] = 1;
+                    ans = L;    //更新最长回文子串长度
+                }
+            }
+        }
+    }
+    printf("%d\n",ans );
+    return 0;
+}
