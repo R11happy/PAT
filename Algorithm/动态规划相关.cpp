@@ -1,4 +1,4 @@
-/**
+*
 * @tag     DP问题
 * @authors R11happy (xushuai100@126.com)
 * @date    2017-3-17 14：03-
@@ -202,3 +202,77 @@ int main(int argc, char const *argv[])
     printf("%d\n",ans );
     return 0;
 }
+
+/**
+* @tag     DAG(有向无环图)最长路
+* @authors R11happy (xushuai100@126.com)
+* @date
+* @version 1.0
+* @Language C++
+* @Ranking  null
+* @function 给定有向无环图，求解整个图的所有路径中权值之和最大的那条
+*/
+// dp[i]表示从i号顶点出发能获得的最长路径长度
+int DP(int i)
+{
+    if(dp[i] > 0)   return dp[i];
+    for(int j = 0; j<n; j++)
+    {
+        if(G[i][j] != INF)  dp[i] = max(dp[i], DP[j]+G[i][j]);
+    }
+    return dp[i];
+}
+
+// 记录路径版
+// choice数组存放后继结点
+int DP(int i)
+{
+    if(dp[i] > 0)   return dp[i];
+    for(int j = 0; j<n; j++)    //遍历i所有出边
+    {
+        if(G[i][j] != INF)
+        {
+            int tmp = DP[j] + G[i][j];  //单独计算，防止if中调用DP函数两次
+            if(tmp > dp[i])
+            {
+                dp[i] = tmp;
+                choice[i] = j;  //i号顶点的后继顶点为j
+            }
+        }
+    }
+    return dp[i];
+}
+
+// 调用printPath前需要先得到最大的dp[i]，然后将i作为路径起点传入
+// 且已自动实现长度相同时，按路径序列字典序排序
+void printPath(int i)
+{
+    printf("%d", i);
+    while(choice[i] != -1)  //choice数组要先初始化为-1
+    {
+        i = choice[i];
+        printf("->%d",i );
+    }
+    printf("\n");
+}
+
+/**
+ * 固定终点，求DAG的最长路径
+ * 初始化dp数组为一个负大数，保证“无法到达终点”
+ * 设置一个vis数组表示顶点是否已经被计算
+ */
+int DP(int i)
+{
+    if(vis[i])  return dp[i];
+    vis[i] = true;
+    for(int j = 0; j<n; j++)
+    {
+        if(G[i][j] != INF)
+        {
+            dp[i] = max(dp[i], DP[j]+G[i][j]);
+        }
+    }
+    return dp[i];
+}
+
+
