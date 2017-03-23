@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
     }
     int ans = -1;
     for(int i = 0; i<num; i++)
-    {
+
         dp[i] = 1;
         for(int j = 0; j<i; j++)
         {

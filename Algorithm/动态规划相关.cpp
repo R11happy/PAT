@@ -1,4 +1,4 @@
-*
+/*
 * @tag     DP问题
 * @authors R11happy (xushuai100@126.com)
 * @date    2017-3-17 14：03-
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
 }
 
 /**
-* @tag     最长不下降子序列(LIS)
+* @tag     最长不下降子序列(LIS) 有nlogn的算法？
 * @authors R11happy (xushuai100@126.com)
 * @date    2016-10-13 12:49-
 * @version 1.0
